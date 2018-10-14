@@ -8,7 +8,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                'cmd /c mvn'.execute()
+                'mvn.cmd'
             }
             post {
                 success {
