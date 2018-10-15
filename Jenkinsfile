@@ -27,7 +27,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i C:\Users\aprat\Downloads\tomcat-k-aline-2.pem '/mnt/c/Program Files (x86)/Jenkins/workspace/teste/webapp/target' ec2-user@52.43.141.131:/var/lib/tomcat7/webapps"
+                        sh "scp -i /c/Users/aprat/Downloads/tomcat-k-aline-2.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
 
