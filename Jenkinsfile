@@ -13,7 +13,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
             post {
                 success {
@@ -27,7 +27,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        scp -i /mnt/c/Users/aprat/Downloads/tomcat-k-aline-2.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps
+                        sh "scp -i /mnt/c/Users/aprat/Downloads/tomcat-k-aline-2.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 
