@@ -27,7 +27,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "/mnt/c/Program\ Files\ \(x86\)/WinSCP/WinSCP.com -i /mnt/c/Users/aprat/Downloads/tomcat-k-aline-2.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        bat "'/mnt/c/Program\ Files\ \(x86\)/WinSCP/WinSCP.com' -i /mnt/c/Users/aprat/Downloads/tomcat-k-aline-2.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 
