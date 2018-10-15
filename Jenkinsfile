@@ -13,7 +13,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
             post {
                 success {
@@ -27,7 +27,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "scp -i tomcat-k-aline-2.pem "C:\Program Files (x86)\Jenkins\workspace\deploy-to-staging\webapp\target\webapp.war" ec2-user@52.43.141.131:/var/lib/tomcat7/webapps"
+                        bat "scp -i c:/Users/aprat/Downloads/tomcat-k-aline-2.pem 'C:/Program Files (x86)/Jenkins/workspace/deploy-to-staging/webapp/target/webapp.war' ec2-user@52.43.141.131:/var/lib/tomcat7/webapps"
                     }
                 }
 
